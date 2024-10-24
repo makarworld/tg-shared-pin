@@ -33,7 +33,7 @@ if not IS_DOCKER:
     logger.warning("Running not in Docker. Redis and Postgres hosts was redefined to localhost.")
     if DB_HOST == "postgres":
         DB_HOST = "localhost"
-        
+
     if REDIS_HOST == "redis":
         REDIS_HOST = "localhost"
 
@@ -115,6 +115,11 @@ class User(BaseModel):
     def mention(self) -> str:
         return f"<code>{self.first_name if self.first_name else ''}{' ' + self.last_name if self.last_name else ''}</code> <a href=\"tg://user?id={self.user_id}\">{self.user_id}</a> (@{self.username})"
 
+class FizraPost(BaseModel):
+    vk_id: int = IntegerField()
+    tg_id: int = IntegerField()
+    text_hash: str = CharField()
+
 class Pin(BaseModel):
     chat_id: int = IntegerField()
     thread_id: int = IntegerField(null = True)
@@ -150,6 +155,7 @@ User.create_table(safe = True)
 Pin.create_table(safe = True)
 PinHistory.create_table(safe = True)
 PinButton.create_table(safe = True)
+FizraPost.create_table(safe = True)
 
 async def renv(key: str, value: str | bool = None) -> str | bool | None:
     if value is None:
