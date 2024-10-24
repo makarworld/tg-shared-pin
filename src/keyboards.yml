@@ -1,0 +1,25 @@
+
+choose_language:
+  # rows adjust
+  # for example: 2, 3, 2, 1
+  # [__1__.] [__2__.]
+  # 
+  # [_3_] [_4_] [_5_]
+  # 
+  # [__6__.] [__7__.]
+  # 
+  # [_______8_______]
+
+  adjust:
+    - 2
+
+  buttons:
+      # text route
+    - locale: buttons.ru
+      # CallbackFactory kwargs
+      data: 
+        action: lang_ru         
+
+    - locale: buttons.en
+      data: 
+        action: lang_en             
