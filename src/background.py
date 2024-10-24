@@ -39,6 +39,7 @@ async def check_fizra(bot: Bot):
                         chat_id = FZ_CHANNEL_ID,
                         message_id = exist_post.tg_id
                     )
+                    logger.success(f"[check_fizra] Post was updated: {exist_post}")
 
 
             if item["id"] > last_fizra_post_id:
@@ -51,9 +52,10 @@ async def check_fizra(bot: Bot):
                                tg_id = m.message_id, 
                                text_hash = hashlib.sha256(text.encode('utf-8')).hexdigest())
                 fp.save()
+                logger.success(f"[check_fizra] New post: {fp}")
                 
                 await asyncio.sleep(5)
         
         logger.info(f"[check_fizra] was checked: {last_fizra_post_id}")
 
-        await asyncio.sleep(60 * 30) # 30 min
+        await asyncio.sleep(60 * 1) # 1 min

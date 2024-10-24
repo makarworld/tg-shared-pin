@@ -120,6 +120,12 @@ class FizraPost(BaseModel):
     tg_id: int = IntegerField()
     text_hash: str = CharField()
 
+    def __str__(self) -> str:
+        return f"Post[{self.vk_id}] <{self.tg_id}> ({self.text_hash})"
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
 class Pin(BaseModel):
     chat_id: int = IntegerField()
     thread_id: int = IntegerField(null = True)

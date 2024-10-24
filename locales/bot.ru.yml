@@ -23,7 +23,7 @@ ru:
 
     <b>Так же запущена пересылка постов из группы физ воспитания в ВК:</b> @spbgtisport
 
-    <i>Source: https://github.com/makarworkd/tg-shared-pin.git</i>
+    <i>Source: https://github.com/makarworld/tg-shared-pin.git</i>
     <i>Chat_id: <code>%{chat_id}</code></i>
 
   history_pin: |
